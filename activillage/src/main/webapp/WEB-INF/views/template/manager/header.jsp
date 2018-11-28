@@ -12,6 +12,14 @@
 	width: 1184px;
 	height: 75px;
 }
+.logo{
+	width: 141px;
+	height: 33px;
+	float: left;
+}
+.category{
+	float: right;
+}
 </style>
 <script type="text/javascript">
 	$(function() {
@@ -24,18 +32,8 @@
 		<div class="logo">
 			<a href="/"><img alt="로고 이미지" src="/resources/images/logo/logo.png"></a>
 		</div>
-		<div class="search_bar">
-			<select name="search_name" id="search_name">
-				<option value="goods_name">상품명</option>
-				<option value="do_name">지역명</option>
-			</select> <input type="text" name="search_keyword" id="search_keyword"
-				placeholder="지역 및 상품명을 검색해 보세요"> <input type="button"
-				value="검색" id="search_button">
-		</div>
-		<div>
-			<a href="/WEB-INF/views/mypage/myPage.jsp">마이 페이지</a> <a
-				href="/WEB-INF/views/login/login.jsp">로그인</a> <a
-				href="/WEB-INF/views/join/userJoin.jsp">회원가입</a>
+		<div class="category">
+			<p>회원정보관리/예약정보/고객센터/통계정보<a href="/manager/logout.do">/로그아웃</a>
 		</div>
 	</div>
 </body>
