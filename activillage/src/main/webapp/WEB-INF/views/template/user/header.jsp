@@ -15,7 +15,6 @@
 </style>
 <script type="text/javascript">
 	$(function() {
-
 	});
 </script>
 <title><tiles:getAsString name="header" /></title>
