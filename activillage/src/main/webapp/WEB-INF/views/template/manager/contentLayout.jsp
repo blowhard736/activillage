@@ -16,7 +16,7 @@
 			<tiles:insertAttribute name="main" />
     </div>
     
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="footer">
     	<tiles:insertAttribute name="footer" />
     </nav>
 </body>

@@ -2,19 +2,30 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-	<definition name="basic" template="/WEB-INF/views/template/manager/contentLayout.jsp">
+	<definition name="basic"
+		template="/WEB-INF/views/template/manager/contentLayout.jsp">
 		<put-attribute name="title" value="관리자 페이지" />
-		<put-attribute name="header" value="/WEB-INF/views/template/manager/header.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/template/manager/footer.jsp" />
- 		<put-attribute name="main" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/template/manager/header.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/template/manager/footer.jsp" />
+		<put-attribute name="main" value="" />
 	</definition>
 
 	<definition name="manager/main/*" extends="basic">
-		
- 		<put-attribute name="main" value="/WEB-INF/views/manager/main/userManage.jsp" />
+		<put-attribute name="main"
+			value="/WEB-INF/views/manager/main/{1}.jsp" />
 	</definition>
-	<!-- <definition name="admin/member/*" extends="basic">
-		<put-attribute name="sub" value="/WEB-INF/views/admin/member/memberSub.jsp" />
- 		<put-attribute name="main" value="/WEB-INF/views/admin/member/{1}.jsp" />
-	</definition> -->
+
+	<!-- <definition name="manager/main/userManage" extends="basic"> <put-attribute 
+		name="main" value="/WEB-INF/views/manager/main/userManage.jsp" /> </definition> 
+		<definition name="manager/main/sellerManage" extends="basic"> <put-attribute 
+		name="main" value="/WEB-INF/views/manager/main/sellerManage.jsp" /> </definition> 
+		<definition name="manager/main/salesManage" extends="basic"> <put-attribute 
+		name="main" value="/WEB-INF/views/manager/main/salesManage.jsp" /> </definition> 
+		<definition name="manager/main/managerJoin" extends="basic"> <put-attribute 
+		name="main" value="/WEB-INF/views/manager/main/managerJoin.jsp" /> </definition> 
+		<definition name="manager/main/managerManage" extends="basic"> <put-attribute 
+		name="main" value="/WEB-INF/views/manager/main/managerManage.jsp" /> </definition> -->
+
 </tiles-definitions>

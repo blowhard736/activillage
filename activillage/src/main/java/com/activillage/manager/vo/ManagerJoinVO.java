@@ -1,14 +1,14 @@
 package com.activillage.manager.vo;
 
-import java.util.Date;
+import com.activillage.common.vo.CommonVO;
 
-public class ManagerJoinVO {
+public class ManagerJoinVO extends CommonVO{
 	private int m_no;
 	private String m_id;
 	private String m_pw;
 	private String m_retire;
 	private String m_name;
-	private Date m_joinday;
+	private String m_joinday;
 
 	public int getM_no() {
 		return m_no;
@@ -50,11 +50,11 @@ public class ManagerJoinVO {
 		this.m_name = m_name;
 	}
 
-	public Date getM_joinday() {
+	public String getM_joinday() {
 		return m_joinday;
 	}
 
-	public void setM_joinday(Date m_joinday) {
+	public void setM_joinday(String m_joinday) {
 		this.m_joinday = m_joinday;
 	}
 

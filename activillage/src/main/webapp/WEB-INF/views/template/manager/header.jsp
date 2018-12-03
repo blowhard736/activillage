@@ -12,28 +12,35 @@
 	width: 1184px;
 	height: 75px;
 }
-.logo{
+
+.logo {
 	width: 141px;
 	height: 33px;
 	float: left;
 }
-.category{
+
+.category {
 	float: right;
 }
 </style>
-<script type="text/javascript">
-	$(function() {
-	});
-</script>
+
 <title>헤더</title>
 </head>
 <body>
 	<div class="header">
 		<div class="logo">
-			<a href="/"><img alt="로고 이미지" src="/resources/images/logo/logo.png"></a>
+			<a href="/"><img alt="로고 이미지"
+				src="/resources/images/logo/logo.png"></a>
 		</div>
 		<div class="category">
-			<p>회원정보관리/예약정보/고객센터/통계정보<a href="/manager/logout.do">/로그아웃</a>
+			<%
+				if (session.getAttribute("m_id") != null) {
+			%>
+			<a href="/manager/main/userManage">회원정보관리</a><a>/예약정보</a><a>/고객센터</a><a>/통계정보</a><a
+				href="/manager/logout.do">/로그아웃</a>
+			<%
+				}
+			%>
 		</div>
 	</div>
 </body>

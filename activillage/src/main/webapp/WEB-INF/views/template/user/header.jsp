@@ -13,10 +13,7 @@
 	height: 75px;
 }
 </style>
-<script type="text/javascript">
-	$(function() {
-	});
-</script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <title>헤더</title>
 </head>
 <body>
@@ -35,7 +32,7 @@
 		<div>
 			<a href="/WEB-INF/views/mypage/myPage.jsp">마이 페이지</a> <a
 				href="/WEB-INF/views/login/login.jsp">로그인</a> <a
-				href="/WEB-INF/views/join/userJoin.jsp">회원가입</a>
+				href="/join/join.do">회원가입</a>
 		</div>
 	</div>
 </body>

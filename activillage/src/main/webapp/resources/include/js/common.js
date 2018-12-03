@@ -61,8 +61,8 @@ function chkData(item, msg) {
  * 함수명: inputVerify(배열 인덱스번호, 비교할 값, 출력영역) 
  * */ 
 var pattern = [
-     "((?=.*[a-zA-Z])(?=.*[0-9]).{6,10})",
-     "((?=.*[a-zA-Z])(?=.*[0-9@#$%]).{8,12})",
+     "((?=.*[a-zA-Z]))",
+     "((?=.*[0-9@#$%]))",
      "^\\d{3}-\\d{3,4}-\\d{4}"];
 function inputVerify(index, data, printarea){
 	var data_regExp = new RegExp(pattern[index]);

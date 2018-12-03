@@ -14,9 +14,9 @@
 <body>
 	<div id="side">
 		<p>회원 종류</p>
-		<p><hr></p>
-		<p>일반 회원</p>
-		<p>사업자</p>
+		<p><hr>
+		<p><a href="/manager/main/userManage.do">일반 회원</a></p>
+		<p><a href="/manager/main/sellerManage.do">사업자</a></p>
 	</div>
 </body>
 </html>

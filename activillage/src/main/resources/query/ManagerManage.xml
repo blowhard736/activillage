@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.activillage.manager.manager.dao.ManagerManagerDao">
+
+	<!-- <select id="managerList" resultType="manager"> select m_no, m_id, m_name, 
+		to_char(m_joinday,'YYYY-MM-DD') as m_joinday, m_retire from act_manager where 
+		m_id != 'admin' and m_retire='N' </select> -->
+
+	<!-- 게시물 전체 조회 -->
+	<select id="managerList" parameterType="manager"
+		resultType="manager">
+		SELECT m_no, m_id, m_name, to_char(m_joinday,'YYYY-MM-DD') as
+		m_joinday, m_retire
+		FROM
+		( SELECT list.*, ROWNUM AS RNUM
+		FROM ( select *
+		from act_manager
+		where m_id != 'admin' and m_retire='N' 
+		<![CDATA[ and m_name like '%'|| #{keyword} ||'%']]>
+		<choose>
+			<when test="order_by=='m_name'">
+				ORDER BY m_name
+			</when>
+			<when test="order_by=='m_joinday'">
+				ORDER BY m_joinday
+			</when>
+		</choose>
+		<choose>
+			<when test="order_sc=='ASC'">
+				ASC
+			</when>
+			<when test="order_sc=='DESC'">
+				DESC
+			</when>
+		</choose>
+		) list
+		)
+		<where>
+			<if test="start_row != null and start_row != ''">
+				<if test="end_row != null and end_row != ''">
+					RNUM BETWEEN #{start_row} AND #{end_row}
+				</if>
+			</if>
+		</where>
+	</select>
+
+	<select id="managerListCnt" parameterType="manager"
+		resultType="int">
+		SELECT NVL(count(1), 0) FROM
+		( SELECT list.*,
+		ROWNUM AS RNUM
+		FROM (
+		select *
+		from act_manager
+		where m_id != 'admin' and m_retire='N' 
+		<![CDATA[ and m_name like '%'|| #{keyword} ||'%']]>
+		ORDER BY m_joinday desc
+		) list
+		)
+	</select>
+
+	<update id="managerRetire" parameterType="manager">
+		update act_manager set
+		m_retire='Y'
+		where m_no=#{m_no}
+	</update>
+</mapper>

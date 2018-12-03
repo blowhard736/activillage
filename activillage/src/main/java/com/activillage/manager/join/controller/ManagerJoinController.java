@@ -32,7 +32,7 @@ public class ManagerJoinController {
 	@RequestMapping(value="/managerJoin", method = RequestMethod.GET)
 	public String managerJoin() {		
 		log.info("managerJoin get 호출 성공");
-		return "join/managerJoin";
+		return "manager/main/managerJoin";
 	}
 	
 	// 사용자 아이디 중복 체크 메서드
@@ -55,6 +55,6 @@ public class ManagerJoinController {
             mvo.setM_pw(bCryptString);
         }
 		managerJoinService.managerInsert(mvo);
-		return "index";
+		return "manager/main/userManage";
 	}
 }

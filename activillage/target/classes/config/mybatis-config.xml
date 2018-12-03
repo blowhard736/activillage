@@ -3,5 +3,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.activillage.manager.vo.ManagerJoinVO" alias="manager"/>
+		<typeAlias type="com.activillage.seller.join.vo.SellerJoinVO" alias="seller"/>
+		<typeAlias type="com.activillage.user.join.vo.UserJoinVO" alias="user"/>
 	</typeAliases>
 </configuration>
