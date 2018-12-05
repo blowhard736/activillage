@@ -31,7 +31,7 @@
 		</div>
 		<div>
 			<a href="/WEB-INF/views/mypage/myPage.jsp">마이 페이지</a> <a
-				href="/WEB-INF/views/login/login.jsp">로그인</a> <a
+				href="/login/login.do">로그인</a> <a
 				href="/join/join.do">회원가입</a>
 		</div>
 	</div>

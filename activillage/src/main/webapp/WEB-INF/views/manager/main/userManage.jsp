@@ -202,10 +202,9 @@
 				</table>
 			</div>
 
-			<!-- <div>
-				<label>회원수 : </label> <input type="text" id="user_count"
-					name="user_count"> 명
-			</div> -->
+			<div>
+				<label>회원수 : </label><input type="text" value="${total}" readonly="readonly">명 
+			</div>
 
 			<%-- =============== 페이지 네비게이션 시작 =============== --%>
 			<div id="boardPage">

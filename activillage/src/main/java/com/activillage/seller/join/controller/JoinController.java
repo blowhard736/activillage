@@ -85,7 +85,7 @@ public class JoinController {
 		return "index";
 	}
 
-	// 사업자 등록 처리
+	// 사용자 등록 처리
 	@RequestMapping(value="/userjoin", method = RequestMethod.POST)
 	public String userInsert(@ModelAttribute UserJoinVO uvo, BindingResult bindResult, Model model) throws Exception {
 		log.info("userInsert post 방식에 의한 메서드 호출 성공");

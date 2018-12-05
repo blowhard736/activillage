@@ -6,13 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.activillage.common.util.crypt.SHA256;
 import com.activillage.seller.join.vo.SellerJoinVO;
 import com.activillage.seller.login.service.LoginService;
 import com.activillage.user.join.vo.UserJoinVO;
@@ -24,8 +22,8 @@ import lombok.extern.java.Log;
 @RequestMapping("/login")
 public class LoginController {
 
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	/*@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;*/
 	
 	@Autowired
 	private LoginService loginService;
@@ -52,14 +50,15 @@ public class LoginController {
 				mav.addObject("approval", sVo.getS_approval());
 				session.setAttribute("loginId", sVo.getS_email());
 				session.setAttribute("loginType", "seller");
+				mav.setViewName("index");
 			} else {
 				mav.addObject("code", 0);
+				mav.setViewName("login/login");
 			}
 		} else {
 			mav.addObject("code", 0);
+			mav.setViewName("login/login");
 		}
-		
-		mav.setViewName("main/main");
 		return mav;
 		
 	}
@@ -78,14 +77,16 @@ public class LoginController {
 				mav.addObject("code", 1);
 				mav.addObject("approval", "Y");
 				session.setAttribute("loginType", "user");
+				mav.setViewName("index");
 			} else {
 				mav.addObject("code", 0);
+				mav.setViewName("login/login");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			mav.addObject("code", 0);
+			mav.setViewName("login/login");
 		}
-			
-		mav.setViewName("main/main");
 		
 		return mav;
 			

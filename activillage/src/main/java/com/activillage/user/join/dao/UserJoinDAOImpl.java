@@ -2,9 +2,11 @@ package com.activillage.user.join.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.activillage.user.join.vo.UserJoinVO;
 
+@Repository
 public class UserJoinDAOImpl implements UserJoinDAO {
 	
 	@Autowired
