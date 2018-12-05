@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.activillage.manager.seller.dao.ManagerSellerDao">
+
+	<sql id="sellerCommon">
+		SELECT s_no, s_email, s_cname, s_bname, s_phone, s_joinday,
+		s_approval, s_withdrawal
+		FROM act_seller
+		<where>
+			<if test="search=='s_cname'">
+				<![CDATA[ s_cname LIKE '%'|| #{keyword} ||'%' ]]>
+			</if>
+			<if test="search=='s_bname'">
+				<![CDATA[ s_bname LIKE '%'|| #{keyword} ||'%' ]]>
+			</if>
+			s_withdrawal='N'
+		</where>
+	</sql>
+
+	<!-- 게시물 전체 조회 -->
+	<select id="sellerList" parameterType="seller"
+		resultType="seller">
+		SELECT s_no, s_email, s_cname, s_bname, s_phone,
+		to_char(s_joinday,'YYYY-MM-DD') as s_joinday,
+		s_approval, s_withdrawal
+		FROM
+		( SELECT
+		list.*, ROWNUM AS RNUM
+		FROM (
+		<include refid="sellerCommon"></include>
+		<choose>
+			<when test="order_by=='s_cname'">
+				ORDER BY s_cname
+			</when>
+			<when test="order_by=='s_joinday'">
+				ORDER BY s_joinday
+			</when>
+		</choose>
+		<choose>
+			<when test="order_sc=='ASC'">
+				ASC
+			</when>
+			<when test="order_sc=='DESC'">
+				DESC
+			</when>
+		</choose>
+		) list
+		)
+		<where>
+			<if test="start_row != null and start_row != ''">
+				<if test="end_row != null and end_row != ''">
+					RNUM BETWEEN #{start_row} AND #{end_row}
+				</if>
+			</if>
+		</where>
+	</select>
+
+	<select id="sellerListCnt" parameterType="seller"
+		resultType="int">
+		SELECT NVL(count(1), 0) FROM
+		( SELECT list.*,
+		ROWNUM AS RNUM
+		FROM (
+		<include refid="sellerCommon"></include>
+		ORDER BY s_joinday desc
+		) list
+		)
+	</select>
+
+	<update id="sellerApproval" parameterType="seller">
+		update act_seller
+		set
+		s_approval='Y' where s_no=#{s_no}
+	</update>
+</mapper>
