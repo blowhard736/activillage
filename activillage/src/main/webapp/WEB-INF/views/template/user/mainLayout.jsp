@@ -91,18 +91,6 @@
 
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-	// 로그인
-
-	var code = "<c:out value='${code}' />";
-	var approval = "<c:out value='${approval}' />";
-	if (code == 1 && approval == 'Y') {
-		alert("로그인 성공!");
-		$("#id").show();
-	} 
-});
-</script>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">

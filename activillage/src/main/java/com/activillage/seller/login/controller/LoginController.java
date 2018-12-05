@@ -46,17 +46,21 @@ public class LoginController {
 		
 		if (sVo != null) {
 			if (BCrypt.checkpw(orgPass, sVo.getS_pw())) {
+				if(sVo.getS_approval().equals("Y")) {
 				mav.addObject("code", 1);
-				mav.addObject("approval", sVo.getS_approval());
 				session.setAttribute("loginId", sVo.getS_email());
 				session.setAttribute("loginType", "seller");
 				mav.setViewName("index");
+				}else {
+					mav.addObject("code", 2);
+					mav.setViewName("login/login");
+				}
 			} else {
-				mav.addObject("code", 0);
+				mav.addObject("code", 3);
 				mav.setViewName("login/login");
 			}
 		} else {
-			mav.addObject("code", 0);
+			mav.addObject("code", 3);
 			mav.setViewName("login/login");
 		}
 		return mav;
@@ -75,7 +79,6 @@ public class LoginController {
 			if (BCrypt.checkpw(orgPass, uVo.getU_pw())) {
 				mav.addObject("id", uVo.getU_email());
 				mav.addObject("code", 1);
-				mav.addObject("approval", "Y");
 				session.setAttribute("loginType", "user");
 				mav.setViewName("index");
 			} else {
