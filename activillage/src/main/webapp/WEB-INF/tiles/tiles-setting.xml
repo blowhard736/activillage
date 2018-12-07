@@ -14,20 +14,23 @@
  		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/user/footer.jsp" />		
 	</definition>
+	<definition name="login/*" extends="content">
+		<put-attribute name="title" value="회원가입" />
+ 		<put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp" />
+	</definition>
 	<definition name="join/*" extends="content">
 		<put-attribute name="title" value="회원가입" />
  		<put-attribute name="body" value="/WEB-INF/views/join/{1}.jsp" />
 	</definition>
-<<<<<<< HEAD
 	<definition name="goods/*" extends="content">
 		<put-attribute name="title" value="상품리스트" />
  		<put-attribute name="body" value="/WEB-INF/views/goods/{1}.jsp" />
-=======
+	</definition>
 	<definition name="mypage/*" extends="content">
 		<put-attribute name="title" value="마이페이지" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/mypage/{1}.jsp" />
->>>>>>> refs/remotes/origin/JongryunKo
+
 	</definition>
 	<!-- <definition name="replies/*" extends="content">
 		<put-attribute name="body" value="/WEB-INF/views/board/reply.jsp" />

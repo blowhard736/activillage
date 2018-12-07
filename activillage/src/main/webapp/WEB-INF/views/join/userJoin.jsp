@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>사용자 회원가입 페이지</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="/resources/include/js/user/userjoin.js" ></script>
-<script type="text/javascript" src="/resources/include/js/user/usercommon.js"></script>
+<script type="text/javascript" src="/resources/include/js/join/user/userjoin.js" ></script>
+<script type="text/javascript" src="/resources/include/js/join/user/usercommon.js"></script>
 <script type="text/javascript">
 function errCodeCheck(){
 	var errCode = '<c:out value="${errCode}" />';

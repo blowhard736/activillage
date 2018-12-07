@@ -9,11 +9,18 @@
 	</select>
 
 	<insert id="userInsert">
-		<selectKey keyProperty="u_no" resultType="int" order="BEFORE">
+		<selectKey keyProperty="u_no" resultType="int"
+			order="BEFORE">
 			select act_user_seq.nextval from dual
 		</selectKey>
-        insert into act_user(u_no, u_email, u_pw, u_name, u_birth, u_phone)
-        values(#{u_no}, #{u_email}, #{u_pw}, #{u_name}, #{u_birth}, #{u_phone})
-    </insert>
-    
+		insert into act_user(u_no, u_email, u_pw, u_name, u_birth, u_phone)
+		values(#{u_no}, #{u_email}, #{u_pw}, #{u_name}, #{u_birth},
+		#{u_phone})
+	</insert>
+
+	<update id="userUpdate" parameterType="user">
+		update act_user set
+		u_phone = #{u_phone}
+		where u_email = #{u_email}
+	</update>
 </mapper>
