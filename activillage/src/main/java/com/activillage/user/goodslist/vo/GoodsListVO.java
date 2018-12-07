@@ -8,7 +8,7 @@ public class GoodsListVO {
 	private String g_thumb = "";
 	private String g_name = "";
 	private int g_price = 0;
-	private int r_grade = 0;
+	private int g_grade = 0;
 
 	// 조건 검색 시 사용할 필드
 	private String search_name = "";
@@ -62,12 +62,12 @@ public class GoodsListVO {
 		this.g_price = g_price;
 	}
 
-	public int getR_grade() {
-		return r_grade;
+	public int getG_grade() {
+		return g_grade;
 	}
 
-	public void setR_grade(int r_grade) {
-		this.r_grade = r_grade;
+	public void setG_grade(int g_grade) {
+		this.g_grade = g_grade;
 	}
 
 	public String getSearch_name() {
@@ -89,7 +89,7 @@ public class GoodsListVO {
 	@Override
 	public String toString() {
 		return "GoodsListVO [g_no=" + g_no + ", g_do=" + g_do + ", g_category=" + g_category + ", g_thumb=" + g_thumb
-				+ ", g_name=" + g_name + ", g_price=" + g_price + ", r_grade=" + r_grade + ", search_name="
+				+ ", g_name=" + g_name + ", g_price=" + g_price + ", g_grade=" + g_grade + ", search_name="
 				+ search_name + ", search_keyword=" + search_keyword + ", toString()=" + super.toString() + "]";
 	}
 

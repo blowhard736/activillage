@@ -93,6 +93,64 @@
 }
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#kyeong").click(function() {
+			$("#search_name").val("do_name");
+			$("#search_keyword").val("경기도");
+			$("#goGoodsList").attr({
+				"method" : "get",
+				"action" : "/goods/goodsList.do"
+			});
+			$("#goGoodsList").submit();
+		});
+		$("#kang").click(function() {
+			$("#search_name").val("do_name");
+			$("#search_keyword").val("강원도");
+			$("#goGoodsList").attr({
+				"method" : "get",
+				"action" : "/goods/goodsList.do"
+			});
+			$("#goGoodsList").submit();
+		});
+		$("#choong").click(function() {
+			$("#search_name").val("do_name");
+			$("#search_keyword").val("충청도");
+			$("#goGoodsList").attr({
+				"method" : "get",
+				"action" : "/goods/goodsList.do"
+			});
+			$("#goGoodsList").submit();
+		});
+		$("#jeon").click(function() {
+			$("#search_name").val("do_name");
+			$("#search_keyword").val("전라도");
+			$("#goGoodsList").attr({
+				"method" : "get",
+				"action" : "/goods/goodsList.do"
+			});
+			$("#goGoodsList").submit();
+		});
+		$("#kyeongsang").click(function() {
+			$("#search_name").val("do_name");
+			$("#search_keyword").val("경상도");
+			$("#goGoodsList").attr({
+				"method" : "get",
+				"action" : "/goods/goodsList.do"
+			});
+			$("#goGoodsList").submit();
+		});
+		$("#jeju").click(function() {
+			$("#search_name").val("do_name");
+			$("#search_keyword").val("제주도");
+			$("#goGoodsList").attr({
+				"method" : "get",
+				"action" : "/goods/goodsList.do"
+			});
+			$("#goGoodsList").submit();
+		});
+	});
+</script>
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -108,25 +166,24 @@
 			<span>지역별</span><a class="total">전체보기&gt;</a>
 		</div>
 		<div class="goodsList">
-			<div class="kyeong"
-				onclick="location.href='/manager/main/userManage.do'">
-				<a>경기도</a>
-			</div>
-			<div class="kang">
-				<a>강원도</a>
-			</div>
-			<div class="choong">
-				<a>충청도</a>
-			</div>
-			<div class="jeon">
-				<a>전라도</a>
-			</div>
-			<div class="kyeongsang">
-				<a>경상도</a>
-			</div>
-			<div class="jeju">
-				<a>제주도</a>
-			</div>
+				<div class="kyeong" id="kyeong">
+					<a>경기도</a>
+				</div>
+				<div class="kang" id="kang">
+					<a>강원도</a>
+				</div>
+				<div class="choong" id="choong">
+					<a>충청도</a>
+				</div>
+				<div class="jeon" id="jeon">
+					<a>전라도</a>
+				</div>
+				<div class="kyeongsang" id="kyeongsang">
+					<a>경상도</a>
+				</div>
+				<div class="jeju" id="jeju">
+					<a>제주도</a>
+				</div>
 		</div>
 		<div class="popular">인기상품</div>
 	</div>

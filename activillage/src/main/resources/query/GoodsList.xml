@@ -5,29 +5,31 @@
 
 	<select id="goodsList" parameterType="goodsList"
 		resultType="goodsList">
-		SELECT a.g_no, a.g_do, a.g_thumb, a.g_name, a.g_price, a.g_category,
-		b.r_grade
-		FROM act_goods a, act_review b
+		SELECT g_no, g_do, g_thumb, g_name, g_price, g_category,
+		g_grade
+		FROM
+		act_goods
 		<where>
+			g_post = 'Y'
 			<if test="search_name =='do_name' and search_keyword != ''">
-				<![CDATA[ a.g_do LIKE '%'|| #{search_keyword} ||'%' order by r_grade ]]>
+				<![CDATA[and g_do LIKE '%'|| #{search_keyword} ||'%' order by g_grade ]]>
 			</if>
 			<if test="search_name=='goods_name' and search_keyword != ''">
-				<![CDATA[ a.g_name LIKE '%'|| #{search_keyword} ||'%' order by r_grade ]]>
+				<![CDATA[and g_name LIKE '%'|| #{search_keyword} ||'%' order by g_grade ]]>
 			</if>
 			<if test="g_category=='total'">
-				<![CDATA[ g_category LIKE '%전체%' order by r_grade ]]>
+				order by g_grade
 			</if>
 			<if test="g_category=='sky'">
-				<![CDATA[ g_category LIKE '%하늘%' order by r_grade ]]>
+				<![CDATA[and g_category = '하늘' order by g_grade ]]>
 			</if>
 			<if test="g_category=='land'">
-				<![CDATA[ g_category LIKE '%땅%' order by r_grade ]]>
+				<![CDATA[and g_category = '땅' order by g_grade ]]>
 			</if>
 			<if test="g_category=='aqua'">
-				<![CDATA[ g_category LIKE '%물%' order by r_grade ]]>
+				<![CDATA[and g_category = '물' order by g_grade ]]>
 			</if>
-		</where> 
+		</where>
 	</select>
 
 </mapper>
