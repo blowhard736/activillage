@@ -91,9 +91,12 @@ public class LoginController {
 		try {
 			String orgPass = uvo.getU_pw();
 			if (BCrypt.checkpw(orgPass, uVo.getU_pw())) {
+				mav.addObject("login", uVo);
 				mav.addObject("id", uVo.getU_email());
 				mav.addObject("code", 1);
+				session.setAttribute("loginSession", uVo);
 				session.setAttribute("loginType", "user");
+				log.info("로그인 성공");
 				mav.setViewName("index");
 			} else {
 				mav.addObject("code", 3);
