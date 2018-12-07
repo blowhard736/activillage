@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,9 +31,14 @@
 				value="검색" id="search_button">
 		</div>
 		<div>
-			<a href="/WEB-INF/views/mypage/myPage.jsp">마이 페이지</a> <a
-				href="/login/login.do">로그인</a> <a
-				href="/join/join.do">회원가입</a>
+			<c:if test="${sessionScope.loginType !=('user' || 'seller')}">
+				<a href="/login/login.do">로그인</a>
+				<a href="/join/join.do">회원가입</a>
+			</c:if>
+			<c:if test="${sessionScope.loginType == ('user' || 'seller')}">
+				<a href="/mypage/myPage.do">마이 페이지</a>
+				<a href="/login/logout.do">로그아웃</a>
+			</c:if>
 		</div>
 	</div>
 </body>
