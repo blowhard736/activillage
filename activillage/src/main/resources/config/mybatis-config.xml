@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.activillage.manager.vo.ManagerJoinVO" alias="manager"/>
+		<typeAlias type="com.activillage.seller.join.vo.SellerJoinVO" alias="seller"/>
+		<typeAlias type="com.activillage.user.join.vo.UserJoinVO" alias="user"/>
+	</typeAliases>
+</configuration>

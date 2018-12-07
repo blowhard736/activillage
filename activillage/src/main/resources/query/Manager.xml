@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.activillage.manager.dao.ManagerJoinDAO">
+
+	<select id="manageSelect" parameterType="String" resultType="manager">
+		select m_id, m_pw, m_name
+		from act_manager
+		where m_id = #{m_id}
+	</select>
+
+	<insert id="managerInsert">
+		<selectKey keyProperty="m_no" resultType="int" order="BEFORE">
+			select act_manager_seq.nextval from dual
+		</selectKey>
+        insert into act_manager(m_no, m_id, m_pw , m_name)
+        values(#{m_no}, #{m_id}, #{m_pw}, #{m_name})
+    </insert>
+</mapper>

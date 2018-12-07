@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.activillage.seller.login.dao.LoginDAO">
+
+	<select id="sellerlogin" parameterType="seller" resultType="seller">
+		select * from act_seller where s_email = #{s_email}
+	</select>
+	
+	<select id="userlogin" parameterType="user" resultType="user">
+		select * from act_user where u_email = #{u_email}
+	</select>
+	
+</mapper>
