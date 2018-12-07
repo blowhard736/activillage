@@ -55,6 +55,6 @@ public class ManagerJoinController {
             mvo.setM_pw(bCryptString);
         }
 		managerJoinService.managerInsert(mvo);
-		return "manager/main/userManage";
+		return "manager/main/managerJoin";
 	}
 }

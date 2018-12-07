@@ -1,7 +1,9 @@
 package com.activillage.manager.seller.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.activillage.common.graph.ChartMake;
 import com.activillage.common.page.Paging;
 import com.activillage.common.util.Util;
 import com.activillage.manager.seller.service.ManagerSellerService;
 import com.activillage.manager.vo.ManagerJoinVO;
 import com.activillage.seller.join.vo.SellerJoinVO;
+import com.activillage.user.join.vo.UserJoinVO;
 
 import lombok.extern.java.Log;
 
@@ -74,5 +78,14 @@ public class ManagerSellerController {
 		log.info("manager salesManage 호출 성공");
 
 		return "manager/main/salesManage";
+	}
+	
+	@RequestMapping(value="/sellerChart",method=RequestMethod.GET)
+	public String sellerChart(@ModelAttribute SellerJoinVO svo, Model model, HttpServletRequest request) {
+		//연령데이터
+		Map<String, Integer> userAgeList = managerSellerService.sellerAreaList();
+		ChartMake.sellerPieChart(request, userAgeList);
+		
+		return "manager/main/sellerChart";
 	}
 }

@@ -1,6 +1,7 @@
 package com.activillage.manager.seller.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -56,6 +57,13 @@ public class ManagerSellerServiceImpl implements ManagerSellerService {
 			result = 0;
 		}
 		return result;
+	}
+
+	@Override
+	public Map<String, Integer> sellerAreaList() {
+		Map<String, Integer> areaList = null;
+		areaList = managerSellerDao.sellerAreaList();
+		return areaList;
 	}
 
 }

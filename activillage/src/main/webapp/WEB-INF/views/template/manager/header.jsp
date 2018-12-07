@@ -36,8 +36,11 @@
 			<%
 				if (session.getAttribute("m_id") != null) {
 			%>
-			<a href="/manager/main/userManage">회원정보관리</a><a>/예약정보</a><a>/고객센터</a><a>/통계정보</a><a
-				href="/manager/logout.do">/로그아웃</a>
+			<a href="/manager/main/userManage">회원정보관리</a>
+			<a>/예약정보</a>
+			<a>/고객센터</a>
+			<a href="/manager/userChart">/통계정보</a>
+			<a href="/manager/logout.do">/로그아웃</a>
 			<%
 				}
 			%>

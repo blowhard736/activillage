@@ -1,6 +1,7 @@
 package com.activillage.manager.user.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,11 @@ import org.springframework.stereotype.Repository;
 import com.activillage.user.join.vo.UserJoinVO;
 
 @Repository
-public class ManagerUserDaoImpl implements ManagerUserDao{
+public class ManagerUserDaoImpl implements ManagerUserDao {
 
 	@Autowired
 	private SqlSession session;
-	
+
 	@Override
 	public List<UserJoinVO> userList(UserJoinVO uvo) {
 		return session.selectList("userList");
@@ -27,7 +28,13 @@ public class ManagerUserDaoImpl implements ManagerUserDao{
 
 	@Override
 	public int userListCnt(UserJoinVO uvo) {
-		return (Integer) session.selectOne("userListCnt",uvo);
+		return (Integer) session.selectOne("userListCnt", uvo);
+	}
+
+	@Override
+	public Map<String, Integer> userAgeList() {
+		// TODO Auto-generated method stub
+		return session.selectMap("userAgeList", "");
 	}
 
 }

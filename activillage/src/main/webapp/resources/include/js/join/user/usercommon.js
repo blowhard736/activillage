@@ -65,7 +65,8 @@ var pattern = [
      "((?=.*[a-zA-Z])(?=.*[0-9@#$%]).{8,12})", // 비밀번호 (1)
      "^[가-힣a-zA-Z]*$", // 사용자 이름 (2)
      "^[0-9]*$", // 생년월일 (3)
-     "^[0-9]*$"]; // 연락처 (4)
+     "^[0-9]*$", // 생년월일 (4)
+     "^[0-9]*$"]; // 연락처 (5)
 function inputVerify(index, data, printarea){
 	var data_regExp = new RegExp(pattern[index]);
 	var match = data_regExp.exec($(data).val());

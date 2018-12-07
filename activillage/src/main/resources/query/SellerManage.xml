@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
 	namespace="com.activillage.manager.seller.dao.ManagerSellerDao">
-
+	<resultMap type="java.util.TreeMap" id="graph" />
 	<sql id="sellerCommon">
 		SELECT s_no, s_email, s_cname, s_bname, s_phone, s_joinday,
 		s_approval, s_withdrawal
@@ -73,4 +73,20 @@
 		set
 		s_approval='Y' where s_no=#{s_no}
 	</update>
+	
+	<!-- 상품 지역별 개수 조회 -->
+	<select id="sellerAreaList" resultMap="graph">
+		
+		SELECT COUNT(CASE WHEN g_do = '경기도' THEN 1 END) "경기도" 
+		, COUNT(CASE WHEN g_do = '강원도' THEN 1 END) "강원도" 
+		, COUNT(CASE WHEN g_do = '충청도' THEN 1 END) "충청도" 
+		, COUNT(CASE WHEN g_do = '전라도' THEN 1 END) "전라도" 
+		, COUNT(CASE WHEN g_do = '경상도' THEN 1 END) "경상도" 
+		, COUNT(CASE WHEN g_do = '제주도' THEN 1 END) "제주도" 
+		FROM ( 
+		  SELECT g_do
+		  FROM act_goods
+          where g_post='Y'
+		)
+	</select>
 </mapper>

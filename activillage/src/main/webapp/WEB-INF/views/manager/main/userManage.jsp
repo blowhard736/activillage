@@ -28,7 +28,22 @@
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-	$(function() {
+	$(document).ready(function() {
+		//로그인
+		var m_code = $("#m_code").val();
+		if (m_code == 2) {
+			alert("아이디나 비밀번호가 틀립니다.");
+			m_code = 0;
+		}
+
+		$("#managerLoginBtn").click(function() {
+			$("#managerLoinForm").attr({
+				"method" : "post",
+				"action" : "/manager/login.do"
+			});
+			$("#managerLoinForm").submit();
+		});
+
 		/* $("[id='manager_retire_btn']").click(function() {
 			if (confirm("정말 탈퇴 시키겠습니까?")) {
 				$("[id='u_data']").attr({
@@ -96,10 +111,12 @@
 </script>
 </head>
 <body>
+	<input type="hidden" id="m_code" name="m_code" value="${m_code}" />
+
 	<%
 		if (session.getAttribute("m_id") == null) {
 	%>
-	<form method="post" action="/manager/login.do">
+	<form id="managerLoinForm">
 		<table width="250" border="1">
 			<tr>
 				<td><input type="text" id="m_id" name="m_id" placeholder="아이디" /></td>
@@ -109,7 +126,7 @@
 					placeholder="비밀번호" /></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="로그인" /></td>
+				<td><input type="button" id="managerLoginBtn" value="로그인" /></td>
 			</tr>
 		</table>
 	</form>
@@ -203,7 +220,8 @@
 			</div>
 
 			<div>
-				<label>회원수 : </label><input type="text" value="${total}" readonly="readonly">명 
+				<label>회원수 : </label><input type="text" value="${total}"
+					readonly="readonly">명
 			</div>
 
 			<%-- =============== 페이지 네비게이션 시작 =============== --%>

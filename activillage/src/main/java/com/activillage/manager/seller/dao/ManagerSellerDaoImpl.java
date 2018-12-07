@@ -1,6 +1,7 @@
 package com.activillage.manager.seller.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,12 @@ public class ManagerSellerDaoImpl implements ManagerSellerDao{
 	public int sellerApproval(SellerJoinVO svo) {
 		// TODO Auto-generated method stub
 		return session.update("sellerApproval",svo);
+	}
+
+	@Override
+	public Map<String, Integer> sellerAreaList() {
+		// TODO Auto-generated method stub
+		return session.selectMap("sellerAreaList", "");
 	}
 
 }

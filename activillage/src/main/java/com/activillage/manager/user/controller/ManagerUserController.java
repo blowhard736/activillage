@@ -2,6 +2,7 @@ package com.activillage.manager.user.controller;
 
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.activillage.common.graph.ChartMake;
 import com.activillage.common.page.Paging;
 import com.activillage.common.util.Util;
 import com.activillage.manager.manager.service.ManagerManagerService;
@@ -52,6 +54,15 @@ public class ManagerUserController {
 				model.addAttribute("u_data", uvo);
 		
 		return "manager/main/userManage";
+	}
+	
+	@RequestMapping(value="/userChart",method=RequestMethod.GET)
+	public String userChart(@ModelAttribute UserJoinVO uvo, Model model, HttpServletRequest request) {
+		//연령데이터
+		Map<String, Integer> userAgeList = managerUserService.userAgeList();
+		ChartMake.userPieChart(request, userAgeList);
+		
+		return "manager/main/userChart";
 	}
 	
 	

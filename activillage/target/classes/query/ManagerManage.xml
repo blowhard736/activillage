@@ -2,6 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
 	namespace="com.activillage.manager.manager.dao.ManagerManagerDao">
+	
+	<select id="managerLogin" parameterType="manager" resultType="manager">
+		select * from act_manager where m_id = #{m_id}
+	</select>
 
 	<!-- <select id="managerList" resultType="manager"> select m_no, m_id, m_name, 
 		to_char(m_joinday,'YYYY-MM-DD') as m_joinday, m_retire from act_manager where 

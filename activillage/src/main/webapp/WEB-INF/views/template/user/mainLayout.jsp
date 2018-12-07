@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title><tiles:getAsString name="title" /></title>
 <style type="text/css">
-
 .mainImage {
 	width: 100%;
 	height: 300px;
@@ -48,34 +47,39 @@
 }
 
 .goodsList div a {
-	position: relative; 
-	top : 100px;
+	position: relative;
+	top: 100px;
 	font-size: 24px;
 	font-weight: bold;
 	color: #fff;
 }
 
-.kyeong{
+.kyeong {
 	background-image: url('/resources/images/mainpage/kyeongki.jpg');
 	background-repeat: no-repeat;
 }
-.kang{
+
+.kang {
 	background-image: url('/resources/images/mainpage/kangwon.jpg');
 	background-repeat: no-repeat;
 }
-.choong{
+
+.choong {
 	background-image: url('/resources/images/mainpage/choongchung.jpg');
 	background-repeat: no-repeat;
 }
-.jeon{
+
+.jeon {
 	background-image: url('/resources/images/mainpage/jeonla.png');
 	background-repeat: no-repeat;
 }
-.kyeongsang{
+
+.kyeongsang {
 	background-image: url('/resources/images/mainpage/kyeongsang.jpg');
 	background-repeat: no-repeat;
 }
-.jeju{
+
+.jeju {
 	background-image: url('/resources/images/mainpage/jeju.jpg');
 	background-repeat: no-repeat;
 }
@@ -87,8 +91,6 @@
 .footer {
 	clear: both;
 }
-
-
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -106,7 +108,8 @@
 			<span>지역별</span><a class="total">전체보기&gt;</a>
 		</div>
 		<div class="goodsList">
-			<div class="kyeong" onclick="location.href='/manager/main/userManage.do'">
+			<div class="kyeong"
+				onclick="location.href='/manager/main/userManage.do'">
 				<a>경기도</a>
 			</div>
 			<div class="kang">

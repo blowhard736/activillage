@@ -1,8 +1,8 @@
 package com.activillage.manager.user.dao;
 
 import java.util.List;
+import java.util.Map;
 
-import com.activillage.manager.vo.ManagerJoinVO;
 import com.activillage.user.join.vo.UserJoinVO;
 
 public interface ManagerUserDao {
@@ -11,4 +11,6 @@ public interface ManagerUserDao {
 	public boolean userWithdrawal(UserJoinVO uvo);
 
 	public int userListCnt(UserJoinVO uvo);
+	
+	public Map<String, Integer> userAgeList();
 }

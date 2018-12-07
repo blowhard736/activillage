@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <title>사용자 회원가입 페이지</title>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="/resources/include/js/join/user/userjoin.js" ></script>
-<script type="text/javascript" src="/resources/include/js/join/user/usercommon.js"></script>
+<script type="text/javascript" src="/resources/include/js/user/userjoin.js" ></script>
+<script type="text/javascript" src="/resources/include/js/user/usercommon.js"></script>
 <script type="text/javascript">
 function errCodeCheck(){
 	var errCode = '<c:out value="${errCode}" />';
@@ -73,8 +73,18 @@ function errCodeCheck(){
 				<div class="col-sm-5">
 					<p class="error"></p>
 				</div>
+				
 				<div>
-					<input type="text" id="u_birth" name="u_birth" placeholder="생년월일(숫자 6자제한)" maxlength="6"/>
+					<input type="hidden" id="u_birth" name="u_birth" placeholder="생년월일(숫자 6자제한)" maxlength="6"/>
+				</div>
+				<div>
+					<input type="text" id="birth1" name="u_birth" placeholder="생년월일(숫자 6자제한)" maxlength="6"/>-
+				</div>
+				<div class="col-sm-5">
+					<p class="error"></p>
+				</div>
+				<div>
+					<input type="text" id="birth2" name="u_birth" placeholder="생년월일(숫자 1자제한)" maxlength="1"/>
 				</div>
 				<div class="col-sm-5">
 					<p class="error"></p>

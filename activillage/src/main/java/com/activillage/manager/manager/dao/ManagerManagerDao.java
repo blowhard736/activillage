@@ -8,4 +8,5 @@ public interface ManagerManagerDao {
 	public List<ManagerJoinVO> managerList(ManagerJoinVO mvo);
 	public int managerRetire(ManagerJoinVO mvo);
 	public int managerListCnt(ManagerJoinVO mvo);
+	public ManagerJoinVO managerLogin(ManagerJoinVO mvo);
 }

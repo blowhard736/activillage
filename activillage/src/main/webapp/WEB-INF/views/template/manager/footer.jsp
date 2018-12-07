@@ -21,10 +21,12 @@
 	<div class="category">
 		<%
 			if (session.getAttribute("m_id") != null) {
+				if (session.getAttribute("m_id").equals("admin")) {
 		%>
-		<a href="/mainjoin/managerJoin.do">관리자 등록</a>	
-		<a href="/manager/manage.do">/관리자 관리</a>
+		<a href="/mainjoin/managerJoin.do">관리자 등록</a> <a
+			href="/manager/manage.do">/관리자 관리</a>
 		<%
+			}
 			}
 		%>
 	</div>

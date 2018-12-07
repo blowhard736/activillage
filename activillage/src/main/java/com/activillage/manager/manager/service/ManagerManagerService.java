@@ -8,4 +8,5 @@ public interface ManagerManagerService {
 	public List<ManagerJoinVO> managerList(ManagerJoinVO mvo);
 	public boolean managerRetire(ManagerJoinVO mvo);
 	public int managerListCnt(ManagerJoinVO mvo);
+	public ManagerJoinVO managerLogin(ManagerJoinVO mvo);
 }

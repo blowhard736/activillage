@@ -28,4 +28,9 @@ public class ManagerMangerDaoImpl implements ManagerManagerDao {
 	public int managerListCnt(ManagerJoinVO mvo) {
 		return (Integer) session.selectOne("mangerListCnt", mvo);
 	}
+
+	@Override
+	public ManagerJoinVO managerLogin(ManagerJoinVO mvo) {
+		return (ManagerJoinVO) session.selectOne("managerLogin", mvo);
+	}
 }

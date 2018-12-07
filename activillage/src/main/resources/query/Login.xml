@@ -10,4 +10,32 @@
 		select * from act_user where u_email = #{u_email}
 	</select>
 	
+	<select id="sellerfindId" parameterType="seller" resultType="seller">
+		select s_email from act_seller
+		where s_phone = #{s_phone}
+	</select>
+	
+	<select id="userfindId" parameterType="user" resultType="user">
+		select u_email from act_user
+		where u_phone = #{u_phone}
+	</select>
+	
+	<select id="sellerPwCheck" parameterType="seller" resultType="seller">
+		select * from act_seller where s_email = #{s_email} and s_phone = #{s_phone}
+	</select>
+	
+	<update id="sellerPwupdate" parameterType="seller">
+		update act_seller set s_pw = #{s_pw}
+		where s_email = #{s_email}
+	</update>
+	
+	<select id="userPwCheck" parameterType="user" resultType="user">
+		select * from act_user where u_email = #{u_email} and u_phone = #{u_phone}
+	</select>
+	
+	<update id="userPwupdate" parameterType="user">
+		update act_user set u_pw = #{u_pw}
+		where u_email = #{u_email}
+	</update>
+	
 </mapper>

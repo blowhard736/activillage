@@ -1,6 +1,7 @@
 package com.activillage.manager.user.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,13 @@ public class ManagerUserServiceImpl implements ManagerUserService {
 	@Override
 	public int userListCnt(UserJoinVO uvo) {
 		return managerUserDao.userListCnt(uvo);
+	}
+
+	@Override
+	public Map<String, Integer> userAgeList() {
+		Map<String, Integer> ageList = null;
+		ageList = managerUserDao.userAgeList();
+		return ageList;
 	}
 
 }
