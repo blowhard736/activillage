@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.activillage.user.goodslist.dao.GoodsListDAO">
+
+	<select id="goodsList" parameterType="goodsList"
+		resultType="goodsList">
+		SELECT a.g_no, a.g_do, a.g_thumb, a.g_name, a.g_price, a.g_category,
+		b.r_grade
+		FROM act_goods a, act_review b
+		<where>
+			<if test="search_name =='do_name' and search_keyword != ''">
+				<![CDATA[ a.g_do LIKE '%'|| #{search_keyword} ||'%' order by r_grade ]]>
+			</if>
+			<if test="search_name=='goods_name' and search_keyword != ''">
+				<![CDATA[ a.g_name LIKE '%'|| #{search_keyword} ||'%' order by r_grade ]]>
+			</if>
+			<if test="g_category=='total'">
+				<![CDATA[ g_category LIKE '%전체%' order by r_grade ]]>
+			</if>
+			<if test="g_category=='sky'">
+				<![CDATA[ g_category LIKE '%하늘%' order by r_grade ]]>
+			</if>
+			<if test="g_category=='land'">
+				<![CDATA[ g_category LIKE '%땅%' order by r_grade ]]>
+			</if>
+			<if test="g_category=='aqua'">
+				<![CDATA[ g_category LIKE '%물%' order by r_grade ]]>
+			</if>
+		</where> 
+	</select>
+
+</mapper>
